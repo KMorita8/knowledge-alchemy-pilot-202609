@@ -1,0 +1,1341 @@
+{
+  "purpose": "3冊条件と6冊条件の予備実験用固定セット",
+  "selection_rule": {
+    "condition_3": {
+      "shared_subject": 1,
+      "shared_ndc": 1,
+      "concept_path": 1
+    },
+    "condition_6": {
+      "shared_subject": 2,
+      "shared_ndc": 2,
+      "concept_path": 2
+    },
+    "duplicate_policy": "同一図書は重複表示せず、同じ関係内の次順位候補を使用",
+    "entry_book_policy": "固定課題文をGLuCoSEで検索し、1000冊から自然に選ばれた入口本を使用"
+  },
+  "themes": [
+    {
+      "task_text": "インターネットを安全に使うためのルールを知りたい",
+      "display_subject": "インターネット",
+      "concept_start": "インターネット",
+      "entry_book": {
+        "isbn": "9784405012622",
+        "title": "小学生から知っておきたいネットのルール : ネットの安全な使い方を身につけよう!",
+        "ndc": "007.3",
+        "cover_file": "entry_network_rules.jpg"
+      },
+      "condition_3": [
+        {
+          "assigned_relation": "shared_subject",
+          "isbn": "9784074462629",
+          "title": "クイズでわかる小学生からのネットのルール : 知らないとヤバい",
+          "ndc": "007.3",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9436583518981934,
+          "best_concept_path": null,
+          "cover_file": "network_quiz_rules.jpg"
+        },
+        {
+          "assigned_relation": "shared_ndc",
+          "isbn": "9784652203255",
+          "title": "ネット社会・しくみとルール",
+          "ndc": "007.3",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9128139615058899,
+          "best_concept_path": null,
+          "cover_file": "network_society_rules.jpg"
+        },
+        {
+          "assigned_relation": "concept_path",
+          "isbn": "9784652203286",
+          "title": "生活で使う・家族のルール",
+          "ndc": "007.3",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9094759821891785,
+          "best_concept_path": {
+            "original_subject": "インターネット",
+            "grounded_concept": "インターネット",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "インターネット",
+              "インターネット依存症"
+            ],
+            "path_relations": [
+              "related"
+            ],
+            "path_relations_ja": [
+              "関連語"
+            ],
+            "hop_count": 1,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "family_rules.jpg"
+        }
+      ],
+      "condition_6": [
+        {
+          "assigned_relation": "shared_subject",
+          "isbn": "9784074462629",
+          "title": "クイズでわかる小学生からのネットのルール : 知らないとヤバい",
+          "ndc": "007.3",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9436583518981934,
+          "best_concept_path": null,
+          "cover_file": "network_quiz_rules.jpg"
+        },
+        {
+          "assigned_relation": "shared_subject",
+          "isbn": "9784652203279",
+          "title": "友だちと使う・SNSのルール",
+          "ndc": "007.3",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8928653001785278,
+          "best_concept_path": {
+            "original_subject": "インターネット",
+            "grounded_concept": "インターネット",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "インターネット",
+              "ソーシャルメディア",
+              "ソーシャルネットワーキングサービス"
+            ],
+            "path_relations": [
+              "related",
+              "narrower"
+            ],
+            "path_relations_ja": [
+              "関連語",
+              "下位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "sns_rules.jpg"
+        },
+        {
+          "assigned_relation": "shared_ndc",
+          "isbn": "9784652203255",
+          "title": "ネット社会・しくみとルール",
+          "ndc": "007.3",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9128139615058899,
+          "best_concept_path": null,
+          "cover_file": "network_society_rules.jpg"
+        },
+        {
+          "assigned_relation": "shared_ndc",
+          "isbn": "9784536252904",
+          "title": "ひと目でわかる最新情報モラル : ネット社会を賢く生きる実践スタディ",
+          "ndc": "007.3",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8890793323516846,
+          "best_concept_path": null,
+          "cover_file": "information_morals.jpg"
+        },
+        {
+          "assigned_relation": "concept_path",
+          "isbn": "9784652203286",
+          "title": "生活で使う・家族のルール",
+          "ndc": "007.3",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9094759821891785,
+          "best_concept_path": {
+            "original_subject": "インターネット",
+            "grounded_concept": "インターネット",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "インターネット",
+              "インターネット依存症"
+            ],
+            "path_relations": [
+              "related"
+            ],
+            "path_relations_ja": [
+              "関連語"
+            ],
+            "hop_count": 1,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "family_rules.jpg"
+        },
+        {
+          "assigned_relation": "concept_path",
+          "isbn": "9784811326863",
+          "title": "気をつけよう!ネット動画. 1",
+          "ndc": "007.353",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8849867582321167,
+          "best_concept_path": {
+            "original_subject": "インターネット",
+            "grounded_concept": "インターネット",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "インターネット",
+              "インターネット依存症"
+            ],
+            "path_relations": [
+              "related"
+            ],
+            "path_relations_ja": [
+              "関連語"
+            ],
+            "hop_count": 1,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "network_video_1.jpg"
+        }
+      ]
+    },
+    {
+      "task_text": "生きものにはどんなふしぎがあるの？",
+      "display_subject": "生きもの",
+      "concept_start": "動物",
+      "entry_book": {
+        "isbn": "9784416619056",
+        "title": "生きもののふしぎなお話 : 理系脳を伸ばす遊び なぜ?どうして?編",
+        "ndc": "460.49",
+        "cover_file": "entry_living_things.jpg"
+      },
+      "condition_3": [
+        {
+          "assigned_relation": "shared_subject",
+          "isbn": "9784800287878",
+          "title": "キモい!生きもの : 世にも奇妙な生きもの図鑑",
+          "ndc": "480",
+          "relation_types": [
+            "concept_path",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8417812585830688,
+          "best_concept_path": {
+            "original_subject": "動物",
+            "grounded_concept": "動物",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "動物",
+              "生物",
+              "植物"
+            ],
+            "path_relations": [
+              "broader",
+              "narrower"
+            ],
+            "path_relations_ja": [
+              "上位語",
+              "下位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "living_kimoi.jpg"
+        },
+        {
+          "assigned_relation": "shared_ndc",
+          "isbn": "9784140818404",
+          "title": "ミクロワールド. 3",
+          "ndc": "460.87",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8162477612495422,
+          "best_concept_path": {
+            "original_subject": "動物",
+            "grounded_concept": "動物",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "動物",
+              "動物学",
+              "動物形態学"
+            ],
+            "path_relations": [
+              "related",
+              "narrower"
+            ],
+            "path_relations_ja": [
+              "関連語",
+              "下位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "living_microworld_3.jpg"
+        },
+        {
+          "assigned_relation": "concept_path",
+          "isbn": "9784140817629",
+          "title": "NHKダーウィンが来た!生きもの新伝説生きものクイズブック. 驚きのはなれワザ編",
+          "ndc": "481.7",
+          "relation_types": [
+            "concept_path"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8529679179191589,
+          "best_concept_path": {
+            "original_subject": "動物",
+            "grounded_concept": "動物",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "動物",
+              "野生動物"
+            ],
+            "path_relations": [
+              "narrower"
+            ],
+            "path_relations_ja": [
+              "下位語"
+            ],
+            "hop_count": 1,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "living_darwin_quiz.jpg"
+        }
+      ],
+      "condition_6": [
+        {
+          "assigned_relation": "shared_subject",
+          "isbn": "9784800287878",
+          "title": "キモい!生きもの : 世にも奇妙な生きもの図鑑",
+          "ndc": "480",
+          "relation_types": [
+            "concept_path",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8417812585830688,
+          "best_concept_path": {
+            "original_subject": "動物",
+            "grounded_concept": "動物",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "動物",
+              "生物",
+              "植物"
+            ],
+            "path_relations": [
+              "broader",
+              "narrower"
+            ],
+            "path_relations_ja": [
+              "上位語",
+              "下位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "living_kimoi.jpg"
+        },
+        {
+          "assigned_relation": "shared_subject",
+          "isbn": "9784591147795",
+          "title": "あつまれ!どうぶつ100",
+          "ndc": "480",
+          "relation_types": [
+            "concept_path",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8284305334091187,
+          "best_concept_path": {
+            "original_subject": "動物",
+            "grounded_concept": "動物",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "動物",
+              "生物",
+              "植物"
+            ],
+            "path_relations": [
+              "broader",
+              "narrower"
+            ],
+            "path_relations_ja": [
+              "上位語",
+              "下位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "living_animals_100.jpg"
+        },
+        {
+          "assigned_relation": "shared_ndc",
+          "isbn": "9784140818404",
+          "title": "ミクロワールド. 3",
+          "ndc": "460.87",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8162477612495422,
+          "best_concept_path": {
+            "original_subject": "動物",
+            "grounded_concept": "動物",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "動物",
+              "動物学",
+              "動物形態学"
+            ],
+            "path_relations": [
+              "related",
+              "narrower"
+            ],
+            "path_relations_ja": [
+              "関連語",
+              "下位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "living_microworld_3.jpg"
+        },
+        {
+          "assigned_relation": "shared_ndc",
+          "isbn": "9784140818381",
+          "title": "ミクロワールド. 1",
+          "ndc": "460.87",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8147755265235901,
+          "best_concept_path": {
+            "original_subject": "動物",
+            "grounded_concept": "動物",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "動物",
+              "動物学",
+              "動物形態学"
+            ],
+            "path_relations": [
+              "related",
+              "narrower"
+            ],
+            "path_relations_ja": [
+              "関連語",
+              "下位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "living_microworld_1.jpg"
+        },
+        {
+          "assigned_relation": "concept_path",
+          "isbn": "9784140817629",
+          "title": "NHKダーウィンが来た!生きもの新伝説生きものクイズブック. 驚きのはなれワザ編",
+          "ndc": "481.7",
+          "relation_types": [
+            "concept_path"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8529679179191589,
+          "best_concept_path": {
+            "original_subject": "動物",
+            "grounded_concept": "動物",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "動物",
+              "野生動物"
+            ],
+            "path_relations": [
+              "narrower"
+            ],
+            "path_relations_ja": [
+              "下位語"
+            ],
+            "hop_count": 1,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "living_darwin_quiz.jpg"
+        },
+        {
+          "assigned_relation": "concept_path",
+          "isbn": "9784623078950",
+          "title": "なぜ?どうして?ペットのなぞにせまる. 1",
+          "ndc": "645.6",
+          "relation_types": [
+            "concept_path"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.8389677405357361,
+          "best_concept_path": {
+            "original_subject": "ペット",
+            "grounded_concept": "ペット",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "ペット",
+              "動物"
+            ],
+            "path_relations": [
+              "broader"
+            ],
+            "path_relations_ja": [
+              "上位語"
+            ],
+            "hop_count": 1,
+            "cross_domain": true,
+            "path_source": "original_lod"
+          },
+          "cover_file": "living_pet_mystery_1.jpg"
+        }
+      ]
+    },
+    {
+      "task_text": "おいしいスイーツを作ってみたい",
+      "display_subject": "お菓子",
+      "concept_start": "菓子",
+      "entry_book": {
+        "isbn": "9784591161814",
+        "title": "大好き!おいしいスイーツ",
+        "ndc": "596.6",
+        "cover_file": "entry_sweets.jpg"
+      },
+      "condition_3": [
+        {
+          "assigned_relation": "shared_subject",
+          "isbn": "9784811327174",
+          "title": "かんたん!おいしい!フォトジェニック・スイーツ. [2]",
+          "ndc": "596.65",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.94181889295578,
+          "best_concept_path": null,
+          "cover_file": "sweets_photogenic_2.jpg"
+        },
+        {
+          "assigned_relation": "shared_ndc",
+          "isbn": "9784811328430",
+          "title": "道具1つでらくらくスイーツ. [3]",
+          "ndc": "596.65",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9205943942070007,
+          "best_concept_path": null,
+          "cover_file": "sweets_easy_tool_3.jpg"
+        },
+        {
+          "assigned_relation": "concept_path",
+          "isbn": "9784415326146",
+          "title": "みんなにおくるチョコ",
+          "ndc": "596.65",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9181725978851318,
+          "best_concept_path": {
+            "original_subject": "チョコレート",
+            "grounded_concept": "チョコレート",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "チョコレート",
+              "洋菓子",
+              "菓子"
+            ],
+            "path_relations": [
+              "broader",
+              "broader"
+            ],
+            "path_relations_ja": [
+              "上位語",
+              "上位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "sweets_chocolate_gift.jpg"
+        }
+      ],
+      "condition_6": [
+        {
+          "assigned_relation": "shared_subject",
+          "isbn": "9784811327174",
+          "title": "かんたん!おいしい!フォトジェニック・スイーツ. [2]",
+          "ndc": "596.65",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.94181889295578,
+          "best_concept_path": null,
+          "cover_file": "sweets_photogenic_2.jpg"
+        },
+        {
+          "assigned_relation": "shared_subject",
+          "isbn": "9784052033667",
+          "title": "小学生のチョコレートのおやつマジック",
+          "ndc": "596.65",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9169238209724426,
+          "best_concept_path": {
+            "original_subject": "チョコレート",
+            "grounded_concept": "チョコレート",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "チョコレート",
+              "洋菓子",
+              "菓子"
+            ],
+            "path_relations": [
+              "broader",
+              "broader"
+            ],
+            "path_relations_ja": [
+              "上位語",
+              "上位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "sweets_chocolate_magic.jpg"
+        },
+        {
+          "assigned_relation": "shared_ndc",
+          "isbn": "9784811328430",
+          "title": "道具1つでらくらくスイーツ. [3]",
+          "ndc": "596.65",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9205943942070007,
+          "best_concept_path": null,
+          "cover_file": "sweets_easy_tool_3.jpg"
+        },
+        {
+          "assigned_relation": "shared_ndc",
+          "isbn": "9784309292717",
+          "title": "たのしいおりょうり",
+          "ndc": "596",
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.916741132736206,
+          "best_concept_path": null,
+          "cover_file": "sweets_fun_cooking.jpg"
+        },
+        {
+          "assigned_relation": "concept_path",
+          "isbn": "9784415326146",
+          "title": "みんなにおくるチョコ",
+          "ndc": "596.65",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9181725978851318,
+          "best_concept_path": {
+            "original_subject": "チョコレート",
+            "grounded_concept": "チョコレート",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "チョコレート",
+              "洋菓子",
+              "菓子"
+            ],
+            "path_relations": [
+              "broader",
+              "broader"
+            ],
+            "path_relations_ja": [
+              "上位語",
+              "上位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "sweets_chocolate_gift.jpg"
+        },
+        {
+          "assigned_relation": "concept_path",
+          "isbn": "9784580825604",
+          "title": "1年生からのらくらくレシピ. [3]",
+          "ndc": "596",
+          "relation_types": [
+            "concept_path",
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "priority_level": 1,
+          "cosine_similarity": 0.9012244939804077,
+          "best_concept_path": {
+            "original_subject": "和菓子",
+            "grounded_concept": "和菓子",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "和菓子",
+              "菓子"
+            ],
+            "path_relations": [
+              "broader"
+            ],
+            "path_relations_ja": [
+              "上位語"
+            ],
+            "hop_count": 1,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "cover_file": "sweets_easy_recipe_3.jpg"
+        }
+      ]
+    },
+    {
+      "task_text": "人のためにはたらく犬について知りたい",
+      "display_subject": "犬",
+      "concept_start": "ボランティア活動",
+      "entry_book": {
+        "isbn": "9784751529089",
+        "title": "はたらく犬と訓練士・ボランティア",
+        "ndc": "645.6",
+        "cover_file": "entry_working_dogs.jpg"
+      },
+      "condition_3": [
+        {
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "shared_subjects": [
+            "犬"
+          ],
+          "shared_ndcs": [
+            "645"
+          ],
+          "priority_level": 1,
+          "cross_domain": false,
+          "cosine_similarity": 0.9112329483032227,
+          "best_concept_path": null,
+          "all_concept_paths": [],
+          "base_rank": 1,
+          "assigned_relation": "shared_subject",
+          "title": "いぬ",
+          "isbn": "9784591180006",
+          "ndc": "645.6",
+          "cover_file": "dogs_inu.jpg"
+        },
+        {
+          "relation_types": [
+            "concept_path",
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "shared_subjects": [
+            "犬"
+          ],
+          "shared_ndcs": [
+            "645"
+          ],
+          "priority_level": 1,
+          "cross_domain": false,
+          "cosine_similarity": 0.904373824596405,
+          "best_concept_path": {
+            "original_subject": "介助犬",
+            "grounded_concept": "介助犬",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "介助犬",
+              "犬"
+            ],
+            "path_relations": [
+              "broader"
+            ],
+            "path_relations_ja": [
+              "上位語"
+            ],
+            "hop_count": 1,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "all_concept_paths": [
+            {
+              "original_subject": "介助犬",
+              "grounded_concept": "介助犬",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "介助犬",
+                "犬"
+              ],
+              "path_relations": [
+                "broader"
+              ],
+              "path_relations_ja": [
+                "上位語"
+              ],
+              "hop_count": 1,
+              "cross_domain": false,
+              "path_source": "original_lod"
+            },
+            {
+              "original_subject": "犬",
+              "grounded_concept": "犬",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "犬",
+                "盲導犬"
+              ],
+              "path_relations": [
+                "narrower"
+              ],
+              "path_relations_ja": [
+                "下位語"
+              ],
+              "hop_count": 1,
+              "cross_domain": false,
+              "path_source": "original_lod"
+            },
+            {
+              "original_subject": "犬",
+              "grounded_concept": "犬",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "犬",
+                "介助犬"
+              ],
+              "path_relations": [
+                "narrower"
+              ],
+              "path_relations_ja": [
+                "下位語"
+              ],
+              "hop_count": 1,
+              "cross_domain": false,
+              "path_source": "original_lod"
+            },
+            {
+              "original_subject": "盲導犬",
+              "grounded_concept": "盲導犬",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "盲導犬",
+                "犬"
+              ],
+              "path_relations": [
+                "broader"
+              ],
+              "path_relations_ja": [
+                "上位語"
+              ],
+              "hop_count": 1,
+              "cross_domain": false,
+              "path_source": "original_lod"
+            }
+          ],
+          "base_rank": 2,
+          "assigned_relation": "shared_ndc",
+          "title": "福祉でがんばる!盲導犬・聴導犬・介助犬",
+          "isbn": "9784751529065",
+          "ndc": "645.6",
+          "cover_file": "dogs_welfare.jpg"
+        },
+        {
+          "relation_types": [
+            "concept_path"
+          ],
+          "shared_subjects": [],
+          "shared_ndcs": [],
+          "priority_level": 1,
+          "cross_domain": true,
+          "cosine_similarity": 0.8670268654823303,
+          "best_concept_path": {
+            "original_subject": "ボランティア活動",
+            "grounded_concept": "ボランティア活動",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "ボランティア活動",
+              "パラレルキャリア",
+              "職業"
+            ],
+            "path_relations": [
+              "related",
+              "broader"
+            ],
+            "path_relations_ja": [
+              "関連語",
+              "上位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": true,
+            "path_source": "original_lod"
+          },
+          "all_concept_paths": [
+            {
+              "original_subject": "ボランティア活動",
+              "grounded_concept": "ボランティア活動",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "ボランティア活動",
+                "パラレルキャリア",
+                "職業"
+              ],
+              "path_relations": [
+                "related",
+                "broader"
+              ],
+              "path_relations_ja": [
+                "関連語",
+                "上位語"
+              ],
+              "hop_count": 2,
+              "cross_domain": true,
+              "path_source": "original_lod"
+            },
+            {
+              "original_subject": "職業",
+              "grounded_concept": "職業",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "職業",
+                "パラレルキャリア",
+                "ボランティア活動"
+              ],
+              "path_relations": [
+                "narrower",
+                "related"
+              ],
+              "path_relations_ja": [
+                "下位語",
+                "関連語"
+              ],
+              "hop_count": 2,
+              "cross_domain": true,
+              "path_source": "original_lod"
+            }
+          ],
+          "base_rank": 8,
+          "assigned_relation": "concept_path",
+          "title": "コンビニエンスストア・スーパーマーケット",
+          "isbn": "9784265084913",
+          "ndc": "366.29",
+          "cover_file": "dogs_convenience_supermarket.jpg"
+        }
+      ],
+      "condition_6": [
+        {
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "shared_subjects": [
+            "犬"
+          ],
+          "shared_ndcs": [
+            "645"
+          ],
+          "priority_level": 1,
+          "cross_domain": false,
+          "cosine_similarity": 0.9112329483032227,
+          "best_concept_path": null,
+          "all_concept_paths": [],
+          "base_rank": 1,
+          "assigned_relation": "shared_subject",
+          "title": "いぬ",
+          "isbn": "9784591180006",
+          "ndc": "645.6",
+          "cover_file": "dogs_inu.jpg"
+        },
+        {
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "shared_subjects": [
+            "犬"
+          ],
+          "shared_ndcs": [
+            "645"
+          ],
+          "priority_level": 1,
+          "cross_domain": false,
+          "cosine_similarity": 0.8812409043312073,
+          "best_concept_path": null,
+          "all_concept_paths": [],
+          "base_rank": 5,
+          "assigned_relation": "shared_subject",
+          "title": "かいくんとセラピー犬バディ = Kai-kun  therapy dog Buddy",
+          "isbn": "9784337310117",
+          "ndc": "645.6",
+          "cover_file": "dogs_kai_buddy.jpg"
+        },
+        {
+          "relation_types": [
+            "concept_path",
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "shared_subjects": [
+            "犬"
+          ],
+          "shared_ndcs": [
+            "645"
+          ],
+          "priority_level": 1,
+          "cross_domain": false,
+          "cosine_similarity": 0.904373824596405,
+          "best_concept_path": {
+            "original_subject": "介助犬",
+            "grounded_concept": "介助犬",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "介助犬",
+              "犬"
+            ],
+            "path_relations": [
+              "broader"
+            ],
+            "path_relations_ja": [
+              "上位語"
+            ],
+            "hop_count": 1,
+            "cross_domain": false,
+            "path_source": "original_lod"
+          },
+          "all_concept_paths": [
+            {
+              "original_subject": "介助犬",
+              "grounded_concept": "介助犬",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "介助犬",
+                "犬"
+              ],
+              "path_relations": [
+                "broader"
+              ],
+              "path_relations_ja": [
+                "上位語"
+              ],
+              "hop_count": 1,
+              "cross_domain": false,
+              "path_source": "original_lod"
+            },
+            {
+              "original_subject": "犬",
+              "grounded_concept": "犬",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "犬",
+                "盲導犬"
+              ],
+              "path_relations": [
+                "narrower"
+              ],
+              "path_relations_ja": [
+                "下位語"
+              ],
+              "hop_count": 1,
+              "cross_domain": false,
+              "path_source": "original_lod"
+            },
+            {
+              "original_subject": "犬",
+              "grounded_concept": "犬",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "犬",
+                "介助犬"
+              ],
+              "path_relations": [
+                "narrower"
+              ],
+              "path_relations_ja": [
+                "下位語"
+              ],
+              "hop_count": 1,
+              "cross_domain": false,
+              "path_source": "original_lod"
+            },
+            {
+              "original_subject": "盲導犬",
+              "grounded_concept": "盲導犬",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "盲導犬",
+                "犬"
+              ],
+              "path_relations": [
+                "broader"
+              ],
+              "path_relations_ja": [
+                "上位語"
+              ],
+              "hop_count": 1,
+              "cross_domain": false,
+              "path_source": "original_lod"
+            }
+          ],
+          "base_rank": 2,
+          "assigned_relation": "shared_ndc",
+          "title": "福祉でがんばる!盲導犬・聴導犬・介助犬",
+          "isbn": "9784751529065",
+          "ndc": "645.6",
+          "cover_file": "dogs_welfare.jpg"
+        },
+        {
+          "relation_types": [
+            "shared_ndc",
+            "shared_subject"
+          ],
+          "shared_subjects": [
+            "犬"
+          ],
+          "shared_ndcs": [
+            "645"
+          ],
+          "priority_level": 1,
+          "cross_domain": false,
+          "cosine_similarity": 0.8459827303886414,
+          "best_concept_path": null,
+          "all_concept_paths": [],
+          "base_rank": 18,
+          "assigned_relation": "shared_ndc",
+          "title": "ジェイクから10のおねがい = 10 Commandments of Dog Ownership : 犬の十戒",
+          "isbn": "9784864032681",
+          "ndc": "645.6",
+          "cover_file": "dogs_jake_ten_requests.jpg"
+        },
+        {
+          "relation_types": [
+            "concept_path"
+          ],
+          "shared_subjects": [],
+          "shared_ndcs": [],
+          "priority_level": 1,
+          "cross_domain": true,
+          "cosine_similarity": 0.8670268654823303,
+          "best_concept_path": {
+            "original_subject": "ボランティア活動",
+            "grounded_concept": "ボランティア活動",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "ボランティア活動",
+              "パラレルキャリア",
+              "職業"
+            ],
+            "path_relations": [
+              "related",
+              "broader"
+            ],
+            "path_relations_ja": [
+              "関連語",
+              "上位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": true,
+            "path_source": "original_lod"
+          },
+          "all_concept_paths": [
+            {
+              "original_subject": "ボランティア活動",
+              "grounded_concept": "ボランティア活動",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "ボランティア活動",
+                "パラレルキャリア",
+                "職業"
+              ],
+              "path_relations": [
+                "related",
+                "broader"
+              ],
+              "path_relations_ja": [
+                "関連語",
+                "上位語"
+              ],
+              "hop_count": 2,
+              "cross_domain": true,
+              "path_source": "original_lod"
+            },
+            {
+              "original_subject": "職業",
+              "grounded_concept": "職業",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "職業",
+                "パラレルキャリア",
+                "ボランティア活動"
+              ],
+              "path_relations": [
+                "narrower",
+                "related"
+              ],
+              "path_relations_ja": [
+                "下位語",
+                "関連語"
+              ],
+              "hop_count": 2,
+              "cross_domain": true,
+              "path_source": "original_lod"
+            }
+          ],
+          "base_rank": 8,
+          "assigned_relation": "concept_path",
+          "title": "コンビニエンスストア・スーパーマーケット",
+          "isbn": "9784265084913",
+          "ndc": "366.29",
+          "cover_file": "dogs_convenience_supermarket.jpg"
+        },
+        {
+          "relation_types": [
+            "concept_path"
+          ],
+          "shared_subjects": [],
+          "shared_ndcs": [],
+          "priority_level": 1,
+          "cross_domain": true,
+          "cosine_similarity": 0.8669420480728149,
+          "best_concept_path": {
+            "original_subject": "ボランティア活動",
+            "grounded_concept": "ボランティア活動",
+            "grounding_method": "original_exact",
+            "path_nodes": [
+              "ボランティア活動",
+              "パラレルキャリア",
+              "職業"
+            ],
+            "path_relations": [
+              "related",
+              "broader"
+            ],
+            "path_relations_ja": [
+              "関連語",
+              "上位語"
+            ],
+            "hop_count": 2,
+            "cross_domain": true,
+            "path_source": "original_lod"
+          },
+          "all_concept_paths": [
+            {
+              "original_subject": "ボランティア活動",
+              "grounded_concept": "ボランティア活動",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "ボランティア活動",
+                "パラレルキャリア",
+                "職業"
+              ],
+              "path_relations": [
+                "related",
+                "broader"
+              ],
+              "path_relations_ja": [
+                "関連語",
+                "上位語"
+              ],
+              "hop_count": 2,
+              "cross_domain": true,
+              "path_source": "original_lod"
+            },
+            {
+              "original_subject": "職業",
+              "grounded_concept": "職業",
+              "grounding_method": "original_exact",
+              "path_nodes": [
+                "職業",
+                "パラレルキャリア",
+                "ボランティア活動"
+              ],
+              "path_relations": [
+                "narrower",
+                "related"
+              ],
+              "path_relations_ja": [
+                "下位語",
+                "関連語"
+              ],
+              "hop_count": 2,
+              "cross_domain": true,
+              "path_source": "original_lod"
+            }
+          ],
+          "base_rank": 9,
+          "assigned_relation": "concept_path",
+          "title": "農林水産業の仕事 : 農業沿岸漁業牧場",
+          "isbn": "9784055011648",
+          "ndc": "366.29",
+          "cover_file": "dogs_agriculture_fishery_work.jpg"
+        }
+      ]
+    }
+  ]
+}

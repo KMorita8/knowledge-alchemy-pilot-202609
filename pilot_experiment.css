@@ -1,0 +1,1086 @@
+/* =========================================================
+   Knowledge Alchemy
+   予備実験専用UI
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   基本設定
+--------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+
+body {
+    font-family:
+        "Yu Gothic",
+        "Hiragino Kaku Gothic ProN",
+        sans-serif;
+
+    color: #3f392f;
+
+    background-image:
+        url("assets/background_reading_garden_v2.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* ---------------------------------------------------------
+   画面共通
+--------------------------------------------------------- */
+
+.screen {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+/* ---------------------------------------------------------
+   共通パネル
+--------------------------------------------------------- */
+
+.setup-panel,
+.task-panel,
+.entry-panel {
+    width: min(
+        760px,
+        90vw
+    );
+
+    padding: 40px 48px;
+
+    background:
+        rgba(
+            255,
+            252,
+            242,
+            0.94
+        );
+
+    border:
+        2px solid
+        rgba(
+            104,
+            88,
+            58,
+            0.25
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(
+            63,
+            52,
+            35,
+            0.18
+        );
+
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   最初の設定画面
+--------------------------------------------------------- */
+
+.setup-panel h1 {
+    margin-top: 0;
+    margin-bottom: 6px;
+
+    font-size: 38px;
+}
+
+
+.setup-subtitle {
+    margin-top: 0;
+    margin-bottom: 32px;
+
+    font-size: 21px;
+}
+
+
+.form-group {
+    margin-bottom: 22px;
+
+    text-align: left;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    font-size: 18px;
+
+    border:
+        2px solid
+        #aaa18f;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+}
+
+
+/* ---------------------------------------------------------
+   ボタン
+--------------------------------------------------------- */
+
+.main-button {
+    min-width: 230px;
+
+    margin-top: 22px;
+
+    padding: 15px 28px;
+
+    border:
+        2px solid
+        #66583e;
+
+    border-radius: 14px;
+
+    background: #f3e5b6;
+
+    color: #393125;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.main-button:hover {
+    transform:
+        translateY(-1px);
+}
+
+
+.main-button:active {
+    transform:
+        translateY(1px);
+}
+
+
+/* ---------------------------------------------------------
+   エラー
+--------------------------------------------------------- */
+
+.error-message {
+    min-height: 24px;
+
+    margin: 4px 0;
+
+    color: #a2382f;
+
+    font-size: 16px;
+}
+
+
+/* ---------------------------------------------------------
+   課題画面
+--------------------------------------------------------- */
+
+.progress-text {
+    margin-top: 0;
+
+    text-align: right;
+
+    font-size: 17px;
+}
+
+
+.guide-text {
+    margin: 10px 0 24px;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* 実験終了時のお礼を大きく、読みやすく表示する */
+.finish-thanks {
+    margin: 30px 0 10px;
+
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+
+.task-card {
+    padding: 26px 32px;
+
+    border:
+        2px solid
+        #8d805e;
+
+    border-radius: 15px;
+
+    background: #fffdf5;
+}
+
+
+#task-text {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    line-height: 1.65;
+}
+
+
+/* ---------------------------------------------------------
+   入口本
+--------------------------------------------------------- */
+
+.entry-book {
+    margin: 0 auto;
+
+    max-width: 440px;
+}
+
+
+.cover-frame {
+    width: 210px;
+    height: 300px;
+
+    margin:
+        0 auto
+        22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f8f3e4;
+
+    border:
+        2px solid
+        rgba(
+            85,
+            73,
+            52,
+            0.3
+        );
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 12px
+        rgba(
+            56,
+            47,
+            34,
+            0.17
+        );
+}
+
+
+.cover-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #ffffff;
+}
+
+
+#entry-title {
+    margin:
+        12px 0;
+
+    font-size: 24px;
+
+    line-height: 1.55;
+}
+
+
+.book-meta {
+    font-size: 16px;
+    color: #665f54;
+}
+
+
+/* ---------------------------------------------------------
+   関連本画面
+--------------------------------------------------------- */
+
+.related-panel {
+    width: min(
+        1180px,
+        94vw
+    );
+
+    padding: 30px 36px;
+
+    background:
+        rgba(
+            255,
+            252,
+            242,
+            0.92
+        );
+
+    border:
+        2px solid
+        rgba(
+            104,
+            88,
+            58,
+            0.25
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(
+            63,
+            52,
+            35,
+            0.18
+        );
+}
+
+
+.entry-mini {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    margin:
+        0 auto
+        26px;
+}
+
+
+.entry-mini img {
+    width: 70px;
+    height: 100px;
+
+    object-fit: contain;
+
+    background: white;
+
+    border:
+        1px solid
+        #aaa18f;
+
+    border-radius: 8px;
+}
+
+
+.entry-mini p {
+    max-width: 420px;
+
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    line-height: 1.5;
+}
+
+
+.relation-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 26px;
+
+    align-items: start;
+}
+
+
+.relation-column {
+    min-width: 0;
+
+    text-align: center;
+}
+
+
+.relation-sign {
+    min-height: 64px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+    padding: 10px 14px;
+
+    background: #efe2b9;
+
+    border:
+        2px solid
+        #7a6846;
+
+    border-radius: 14px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    box-shadow:
+        0 3px 7px
+        rgba(
+            55,
+            45,
+            30,
+            0.15
+        );
+}
+
+
+.relation-icon {
+    font-size: 23px;
+}
+
+
+.related-books {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.related-book-card {
+    min-height: 270px;
+
+    padding: 16px;
+
+    background:
+        rgba(
+            255,
+            253,
+            247,
+            0.97
+        );
+
+    border:
+        2px solid
+        #a79a7e;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease;
+}
+
+
+.related-book-card:hover {
+    transform:
+        translateY(-3px);
+}
+
+
+.related-book-card img {
+    width: 125px;
+    height: 175px;
+
+    object-fit: contain;
+
+    background: white;
+
+    border-radius: 7px;
+}
+
+
+.related-book-card h3 {
+    margin:
+        12px 0
+        4px;
+
+    font-size: 17px;
+
+    line-height: 1.45;
+}
+
+
+.related-book-card p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #665f54;
+}
+
+/* =========================================================
+   2026-09-07
+   文字サイズ・書影サイズ調整
+========================================================= */
+
+.guide-text {
+    font-size: 28px;
+}
+
+.entry-mini p {
+    font-size: 20px;
+}
+
+.relation-sign {
+    font-size: 22px;
+}
+
+.related-book-card {
+    min-height: 310px;
+}
+
+.related-book-card img {
+    width: 140px;
+    height: 195px;
+}
+
+.related-book-card h3 {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.related-book-card p {
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   本をクリックした後の説明
+========================================================= */
+
+.book-detail-panel {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: min(
+        860px,
+        90vw
+    );
+
+    max-height: 86vh;
+    overflow-y: auto;
+
+    padding: 30px;
+
+    background: #fffdf5;
+
+    border:
+        3px solid
+        #776647;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(50, 42, 30, 0.3);
+
+    z-index: 20;
+}
+
+
+.close-detail-button {
+    position: absolute;
+
+    top: 10px;
+    right: 14px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 32px;
+
+    cursor: pointer;
+}
+
+
+.detail-content {
+    display: flex;
+
+    gap: 24px;
+
+    align-items: center;
+}
+
+
+.detail-content img {
+    width: min(230px, 24vw);
+    height: min(320px, 42vh);
+
+    object-fit: contain;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 14px
+        rgba(
+            50,
+            42,
+            30,
+            0.18
+        );
+}
+
+.detail-text {
+    flex: 1;
+
+    text-align: left;
+}
+
+
+.detail-text h2 {
+    font-size: 28px;
+
+    line-height: 1.5;
+}
+
+
+.detail-text p {
+    font-size: 20px;
+
+    line-height: 1.7;
+}
+
+
+.detail-relation-label {
+    display: inline-block;
+
+    padding:
+        8px 14px;
+
+    background: #efe2b9;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   アンケート
+========================================================= */
+
+.survey-panel {
+    width: min(
+        850px,
+        92vw
+    );
+
+    padding: 34px 42px;
+
+    background:
+        rgba(
+            255,
+            252,
+            242,
+            0.95
+        );
+
+    border:
+        2px solid
+        rgba(
+            104,
+            88,
+            58,
+            0.25
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(
+            63,
+            52,
+            35,
+            0.18
+        );
+}
+
+
+.survey-panel h2 {
+    font-size: 28px;
+
+    text-align: center;
+}
+
+
+.selected-book-small {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-bottom: 26px;
+}
+
+
+.selected-book-small img {
+    width: 90px;
+    height: 125px;
+
+    object-fit: contain;
+
+    background: white;
+}
+
+
+.selected-book-small p {
+    max-width: 500px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    line-height: 1.5;
+}
+
+
+.survey-question {
+    margin:
+        24px 0;
+
+    padding:
+        20px 24px;
+
+    border:
+        2px solid
+        #a79a7e;
+
+    border-radius: 14px;
+
+    background: #fffdf7;
+}
+
+
+.survey-question legend {
+    padding:
+        0 8px;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.survey-question label {
+    display: block;
+
+    margin:
+        15px 0;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+
+.survey-question input {
+    width: 20px;
+    height: 20px;
+
+    margin-right: 10px;
+
+    vertical-align: middle;
+}
+
+/* =========================================================
+   詳細表示中は、後ろの候補を少し薄くする
+========================================================= */
+
+/* =========================================================
+   詳細表示中は、後ろの候補だけを薄くする
+========================================================= */
+
+#related-screen.detail-open .relation-column,
+#related-screen.detail-open .entry-mini,
+#related-screen.detail-open .guide-text,
+#related-screen.detail-open .progress-text {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+
+/* 詳細表示する1冊は通常の濃さで表示する */
+#related-screen.detail-open .book-detail-panel {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+@media (max-height: 800px) {
+
+    .book-detail-panel {
+        max-height: 82vh;
+        padding: 22px;
+    }
+
+    .detail-content img {
+        width: 190px;
+        height: 260px;
+    }
+
+    .detail-text h2 {
+        font-size: 24px;
+    }
+
+    .detail-text p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .main-button {
+        margin-top: 14px;
+        padding: 12px 22px;
+    }
+}
+
+
+/* =========================================================
+   詳細画面の操作ボタン
+========================================================= */
+
+.detail-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.detail-actions button {
+    flex: 1;
+
+    min-height: 70px;
+
+    padding: 16px 22px;
+
+    border:
+        2px solid
+        #776647;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    cursor: pointer;
+}
+
+
+/* ほかの本を見る */
+.detail-actions .sub-button {
+    background: #fffdf5;
+    color: #3f3528;
+}
+
+
+/* この本をえらぶ */
+.detail-actions .main-button {
+    background: #f5e5ad;
+    color: #3f3528;
+}
+
+
+/* マウスをのせたとき */
+.detail-actions .sub-button:hover {
+    background: #f4efdf;
+}
+
+.detail-actions .main-button:hover {
+    background: #efdaa0;
+}
+
+
+
+/* =========================================================
+   詳細画面の2つの操作を同じ見た目にする
+   予備実験で一方を視覚的に強調しないため
+========================================================= */
+
+.detail-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+    margin-top: 24px;
+}
+
+
+/* 2つのボタンを完全に同じ大きさにする */
+.detail-actions .sub-button,
+.detail-actions .main-button {
+    width: 100%;
+    height: 72px;
+
+    margin: 0;
+    padding: 0 18px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #776647;
+    border-radius: 12px;
+
+    background: #fffdf5;
+    color: #3f3528;
+
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.4;
+
+    cursor: pointer;
+}
+
+
+/* マウスをのせたときも同じ */
+.detail-actions .sub-button:hover,
+.detail-actions .main-button:hover {
+    background: #f4efdf;
+}
+
+/* =========================================================
+   関連本画面をPCの高さに収めるための調整
+   3冊条件・6冊条件で共通
+========================================================= */
+
+/* 入口本を少しコンパクトにする */
+#related-screen .entry-mini {
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+#related-screen .entry-mini img {
+    width: 58px;
+    height: 82px;
+}
+
+#related-screen .entry-mini p {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+
+/* 3つの道の間隔を少し詰める */
+#related-screen .relation-grid {
+    gap: 20px;
+}
+
+#related-screen .relation-sign {
+    min-height: 54px;
+
+    margin-bottom: 10px;
+
+    padding: 8px 10px;
+
+    font-size: 20px;
+}
+
+
+/* 同じ列の上下2冊の間隔 */
+#related-screen .related-books {
+    gap: 12px;
+}
+
+
+/* 本カード全体を少し低くする */
+#related-screen .related-book-card {
+    min-height: 245px;
+
+    padding: 12px;
+}
+
+
+/* 表紙は見やすさを残しつつ少し縮小 */
+#related-screen .related-book-card img {
+    width: 115px;
+    height: 155px;
+}
+
+
+/* タイトルは小3でも読める大きさを維持 */
+#related-screen .related-book-card h3 {
+    margin: 8px 0 2px;
+
+    font-size: 17px;
+    line-height: 1.35;
+}
+
+ruby {
+    ruby-position: over;
+}
+
+rt {
+    font-size: 0.55em;
+    font-weight: 500;
+}
+
+
+/* 研究者設定画面の日本語名 */
+.project-name-ja {
+    margin: 4px 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+}

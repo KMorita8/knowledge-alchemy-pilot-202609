@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Knowledge Alchemy 予備実験
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="pilot_experiment.css"
+    >
+</head>
+
+<body>
+
+    <main id="app">
+
+        <!-- ==================================================
+             研究者が最初に設定する画面
+        =================================================== -->
+        <section
+            id="setup-screen"
+            class="screen"
+        >
+
+            <div class="setup-panel">
+
+                <h1>
+                    Knowledge Alchemy
+                </h1>
+
+                <p class="project-name-ja">
+                    本のつながりをたどる 本さがし
+                </p>
+
+                <p class="setup-subtitle">
+                    予備実験
+                </p>
+
+                <div class="form-group">
+
+                    <label for="participant-id">
+                        参加者ID
+                    </label>
+
+                    <input
+                        id="participant-id"
+                        type="text"
+                        placeholder="例：P001"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="grade">
+                        学年
+                    </label>
+
+                    <select id="grade">
+
+                        <option value="">
+                            選択してください
+                        </option>
+
+                        <option value="3">
+                            小学3年生
+                        </option>
+
+                        <option value="4">
+                            小学4年生
+                        </option>
+
+                        <option value="5">
+                            小学5年生
+                        </option>
+
+                        <option value="6">
+                            小学6年生
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="pattern">
+                        割当パターン
+                    </label>
+
+                    <select id="pattern">
+
+                        <option value="">
+                            選択してください
+                        </option>
+
+                        <option value="A">
+                            A
+                        </option>
+
+                        <option value="B">
+                            B
+                        </option>
+
+                        <option value="C">
+                            C
+                        </option>
+
+                        <option value="D">
+                            D
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <p
+                    id="setup-error"
+                    class="error-message"
+                ></p>
+
+
+                <button
+                    id="start-button"
+                    class="main-button"
+                    type="button"
+                >
+                    はじめる
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             児童に課題を提示する画面
+        =================================================== -->
+        <section
+            id="task-screen"
+            class="screen hidden"
+        >
+
+            <div class="task-panel">
+
+                <p class="progress-text">
+                    <ruby>
+                	    本
+		        <rt>ほん</rt>
+		    </ruby>
+			さがし
+                    <span id="theme-number">
+                        1
+                    </span>つめ
+                    （ぜんぶで4つ）
+                </p>
+
+                <p class="guide-text">
+		    こんなことを
+		    <ruby>
+		        知
+		        <rt>し</rt>
+		    </ruby>
+		    りたいとき
+		</p>
+
+                <div class="task-card">
+
+                    <p id="task-text">
+                    </p>
+
+                </div>
+
+		<button
+		    id="show-entry-button"
+		    class="main-button"
+		    type="button"
+		>
+		    <ruby>
+		        本
+		        <rt>ほん</rt>
+		    </ruby>
+		    をさがしてみる
+		</button>
+                
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             入口本を提示する画面
+        =================================================== -->
+        <section
+            id="entry-screen"
+            class="screen hidden"
+        >
+
+            <div class="entry-panel">
+
+                <p class="progress-text">
+		    <ruby>
+		        本
+		        <rt>ほん</rt>
+		    </ruby>
+		    さがし
+		    <span id="entry-theme-number">
+		        1
+		    </span>つめ
+		    （ぜんぶで4つ）
+		</p>
+
+		<p class="guide-text">
+		    まず、この
+		    <ruby>
+		        本
+		        <rt>ほん</rt>
+		    </ruby>
+		    が
+		    <ruby>
+		        見
+		        <rt>み</rt>
+		    </ruby>
+		    つかったよ
+		</p>
+
+
+                <article class="entry-book">
+
+                    <div class="cover-frame">
+
+                        <img
+                            id="entry-cover"
+                            src=""
+                            alt="本の表紙"
+                        >
+
+                    </div>
+
+
+                    <h2 id="entry-title">
+                    </h2>
+
+
+                    <p
+                        id="entry-ndc"
+                        class="book-meta"
+                    ></p>
+
+                </article>
+
+
+               <button
+		    id="show-related-button"
+		    class="main-button"
+		    type="button"
+		>
+		    この
+		    <ruby>
+		        本
+		        <rt>ほん</rt>
+		    </ruby>
+		    からもっと
+		    <ruby>
+		        探
+		        <rt>さが</rt>
+		    </ruby>
+		    す
+		</button>
+            </div>
+
+        </section>
+
+
+   <!-- ==================================================
+             次の段階で関連本画面を実装する
+        =================================================== -->
+<section
+    id="related-screen"
+    class="screen hidden"
+>
+
+    <div class="related-panel">
+
+        <p class="progress-text">
+            <ruby>
+                本
+                <rt>ほん</rt>
+            </ruby>
+            さがし
+            <span id="related-theme-number">1</span>つめ
+            （ぜんぶで4つ）
+        </p>
+
+        <p class="guide-text">
+	    この
+	    <ruby>
+	        本
+	        <rt>ほん</rt>
+	    </ruby>
+	    から、3つの
+	    <ruby>
+	        道
+	        <rt>みち</rt>
+	    </ruby>
+	    につながったよ
+	</p>
+
+        <!-- 入口本 -->
+        <div class="entry-mini">
+
+            <img
+                id="related-entry-cover"
+                src=""
+                alt=""
+            >
+
+            <p id="related-entry-title">
+            </p>
+
+        </div>
+
+
+        <!-- 3つの関係 -->
+        <div class="relation-grid">
+
+
+            <!-- おなじ話題 -->
+            <section class="relation-column">
+
+                <div class="relation-sign">
+
+                    <span class="relation-icon">
+                        🏷
+                    </span>
+
+                   <span>
+         		    おなじ
+	        	    <ruby>
+		                話題
+		                <rt>わだい</rt>
+		            </ruby>
+	           </span>
+
+                </div>
+
+                <div
+                    id="subject-books"
+                    class="related-books"
+                ></div>
+
+            </section>
+
+
+            <!-- おなじ本だな -->
+            <section class="relation-column">
+
+                <div class="relation-sign">
+
+                    <span class="relation-icon">
+                        📚
+                    </span>
+
+			<span>
+			    おなじ
+			    <ruby>
+			        本
+			        <rt>ほん</rt>
+			    </ruby>
+			    だな
+			</span>
+                </div>
+
+                <div
+                    id="ndc-books"
+                    class="related-books"
+                ></div>
+
+            </section>
+
+
+            <!-- ことばから見つけた -->
+            <section class="relation-column">
+
+                <div class="relation-sign">
+
+                    <span class="relation-icon">
+                        ◯─◯
+                    </span>
+
+                    <span>
+                        ことばから
+                        <ruby>
+                            見
+                            <rt>み</rt>
+                        </ruby>
+                        つけた
+                    </span>
+
+                </div>
+
+                <div
+                    id="concept-books"
+                    class="related-books"
+                ></div>
+
+            </section>
+
+
+        </div>
+
+
+        <!--
+            本をクリックした後の詳細表示。
+            relation-grid の外に置く。
+        -->
+        <div
+            id="book-detail-panel"
+            class="book-detail-panel hidden"
+        >
+
+            <button
+                id="close-detail-button"
+                class="close-detail-button"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <div class="detail-content">
+
+                <img
+                    id="detail-cover"
+                    src=""
+                    alt=""
+                >
+
+
+                <div class="detail-text">
+
+                    <p
+                        id="detail-relation-label"
+                        class="detail-relation-label"
+                    ></p>
+
+                    <h2 id="detail-title">
+                    </h2>
+
+                    <p id="detail-explanation">
+                    </p>
+
+                    <div class="detail-actions">
+
+	    <button
+        	id="back-to-books-button"
+	        class="sub-button"
+	        type="button"
+            >
+	        ほかの
+	        <ruby>
+	            本
+	            <rt>ほん</rt>
+	        </ruby>
+	        を
+	        <ruby>
+	            見
+		            <rt>み</rt>
+		        </ruby>
+		        る
+		    </button>
+		    
+		<button
+		    id="choose-book-button"
+		    class="main-button"
+		    type="button"
+		>
+		    この
+		    <ruby>
+		        本
+		        <rt>ほん</rt>
+		    </ruby>
+		    をえらぶ
+		</button>
+	</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section
+    id="survey-screen"
+    class="screen hidden"
+>
+
+    <div class="survey-panel">
+
+        <p class="progress-text">
+            <ruby>
+                本
+                <rt>ほん</rt>
+            </ruby>
+            さがし
+            <span id="survey-theme-number">1</span>つめ
+            （ぜんぶで4つ）
+        </p>
+        <h2>
+            えらんだ
+            <ruby>
+                本
+                <rt>ほん</rt>
+            </ruby>
+            について
+            <ruby>
+                教
+                <rt>おし</rt>
+            </ruby>
+            えてね
+        </h2>
+
+        <div class="selected-book-small">
+
+            <img
+                id="survey-cover"
+                src=""
+                alt=""
+            >
+
+            <p id="survey-book-title"></p>
+
+        </div>
+
+
+<fieldset class="survey-question">
+
+    <legend>
+        この
+        <ruby>
+            本
+            <rt>ほん</rt>
+        </ruby>
+        をえらんだ
+        <ruby>
+            一番
+            <rt>いちばん</rt>
+        </ruby>
+        の
+        <ruby>
+            理由
+            <rt>りゆう</rt>
+        </ruby>
+        はどれ？
+    </legend>
+
+    <label>
+        <input
+            type="radio"
+            name="choice-reason"
+            value="cover"
+        >
+        <ruby>
+            本
+            <rt>ほん</rt>
+        </ruby>
+        の
+        <ruby>
+            表紙
+            <rt>ひょうし</rt>
+        </ruby>
+        の
+        <ruby>
+            絵
+            <rt>え</rt>
+        </ruby>
+        が
+        <ruby>
+            気
+            <rt>き</rt>
+        </ruby>
+        になったから
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            name="choice-reason"
+            value="title"
+        >
+        <ruby>
+            本
+            <rt>ほん</rt>
+        </ruby>
+        の
+        <ruby>
+            題名
+            <rt>だいめい</rt>
+        </ruby>
+        が
+        <ruby>
+            気
+            <rt>き</rt>
+        </ruby>
+        になったから
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            name="choice-reason"
+            value="interest_match"
+        >
+        <ruby>
+            知
+            <rt>し</rt>
+        </ruby>
+        りたいことに
+        <ruby>
+            近
+            <rt>ちか</rt>
+        </ruby>
+        そうだったから
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            name="choice-reason"
+            value="connection_explanation"
+        >
+        この
+        <ruby>
+            本
+            <rt>ほん</rt>
+        </ruby>
+        につながった
+        <ruby>
+            理由
+            <rt>りゆう</rt>
+        </ruby>
+        の
+        <ruby>
+            説明
+            <rt>せつめい</rt>
+        </ruby>
+        が
+        <ruby>
+            気
+            <rt>き</rt>
+        </ruby>
+        になったから
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            name="choice-reason"
+            value="already_knew"
+        >
+        <ruby>
+            前
+            <rt>まえ</rt>
+        </ruby>
+        から
+        <ruby>
+            知
+            <rt>し</rt>
+        </ruby>
+        っていた
+        <ruby>
+            本
+            <rt>ほん</rt>
+        </ruby>
+        だったから
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            name="choice-reason"
+            value="other"
+        >
+        そのほか
+    </label>
+
+</fieldset>
+
+
+<fieldset class="survey-question">
+
+    <legend>
+        えらぶときに、ならんでいた
+        <ruby>
+            本
+            <rt>ほん</rt>
+        </ruby>
+        の
+        <ruby>
+            数
+            <rt>かず</rt>
+        </ruby>
+        はどうだった？
+    </legend>
+
+    <label>
+        <input
+            type="radio"
+            name="amount-feedback"
+            value="too_many"
+        >
+        もっと
+        <ruby>
+            少
+            <rt>すく</rt>
+        </ruby>
+        ないほうがいい
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            name="amount-feedback"
+            value="just_right"
+        >
+        ちょうどいい
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            name="amount-feedback"
+            value="could_be_more"
+        >
+        もっと
+        <ruby>
+            多
+            <rt>おお</rt>
+        </ruby>
+        くてもいい
+    </label>
+
+</fieldset>
+            
+
+        <p
+            id="survey-error"
+            class="error-message"
+        ></p>
+
+        <button
+            id="next-theme-button"
+            class="main-button"
+            type="button"
+        >
+            つぎへ
+        </button>
+
+    </div>
+
+</section>
+
+
+<section
+    id="finish-screen"
+    class="screen hidden"
+>
+
+    <div class="task-panel">
+
+        <h2>
+            おわりです！
+        </h2>
+
+        <p class="guide-text">
+            4つの
+            <ruby>
+                本
+                <rt>ほん</rt>
+            </ruby>
+            さがしが
+            <ruby>
+                終
+                <rt>お</rt>
+            </ruby>
+            わりました。
+        </p>
+
+        <p class="finish-thanks">
+            ご
+            <ruby>
+                協力
+                <rt>きょうりょく</rt>
+            </ruby>
+            ありがとうございました！
+        </p>
+
+    </div>
+
+</section>
+           
+    </main>
+
+
+    <script src="pilot_experiment.js"></script>
+
+</body>
+</html>

@@ -119,6 +119,89 @@ const setupError =
     );
 
 
+
+// ============================================================
+// 専用URLから参加者IDと割当パターンを設定
+// ============================================================
+
+const participantAssignments = {
+    "101": "A",
+    "102": "B",
+    "103": "A",
+    "104": "B",
+    "105": "A"
+};
+
+
+function applyParticipantAssignmentFromUrl() {
+
+    const urlParameters =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const participantId =
+        urlParameters.get(
+            "participant"
+        );
+
+    if (!participantId) {
+        return;
+    }
+
+
+    const assignedPattern =
+        participantAssignments[
+            participantId
+        ];
+
+    if (!assignedPattern) {
+
+        setupError.textContent =
+            "この参加者用リンクは使用できません。";
+
+        return;
+    }
+
+
+    participantIdInput.value =
+        participantId;
+
+    patternSelect.value =
+        assignedPattern;
+
+
+    participantIdInput.readOnly =
+        true;
+
+    patternSelect.disabled =
+        true;
+
+
+    const participantGroup =
+        participantIdInput.closest(
+            ".form-group"
+        );
+
+    const patternGroup =
+        patternSelect.closest(
+            ".form-group"
+        );
+
+
+    if (participantGroup) {
+        participantGroup.hidden = true;
+    }
+
+    if (patternGroup) {
+        patternGroup.hidden = true;
+    }
+}
+
+
+applyParticipantAssignmentFromUrl();
+
+
 const taskText =
     document.getElementById(
         "task-text"

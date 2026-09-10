@@ -1084,3 +1084,27 @@ rt {
     font-size: 18px;
     font-weight: 700;
 }
+
+/* =========================================================
+   スマートフォン横向き時の詳細ボタン調整
+========================================================= */
+
+@media screen
+    and (orientation: landscape)
+    and (max-height: 600px)
+    and (pointer: coarse) {
+
+    .detail-actions .sub-button,
+    .detail-actions .main-button {
+        height: 72px;
+        min-height: 72px;
+
+        padding: 0 8px;
+
+        font-size: 18px;
+        line-height: 1.2;
+
+        white-space: nowrap;
+    }
+}
+

@@ -332,6 +332,16 @@ const finalComment =
         "final-comment"
     );
 
+const downloadLogButton =
+    document.getElementById(
+        "download-log-button"
+    );
+
+const downloadStatus =
+    document.getElementById(
+        "download-status"
+    );
+
 
 // ============================================================
 // ログ
@@ -412,11 +422,60 @@ function saveExperimentLog() {
 }
 
 
-function downloadExperimentLog() {
+function loadStoredExperimentLog(
+    participantId
+) {
+
+    if (!participantId) {
+        return null;
+    }
+
+    const storageKey =
+        "knowledge_alchemy_pilot_log_"
+        + participantId;
+
+    try {
+
+        const storedText =
+            localStorage.getItem(
+                storageKey
+            );
+
+        if (!storedText) {
+            return null;
+        }
+
+        const storedLog =
+            JSON.parse(
+                storedText
+            );
+
+        if (!Array.isArray(storedLog)) {
+            return null;
+        }
+
+        return storedLog;
+
+    } catch (error) {
+
+        console.warn(
+            "一時保存したログを読み込めませんでした。",
+            error
+        );
+
+        return null;
+    }
+}
+
+
+function downloadExperimentLog(
+    logData = experimentLog,
+    participantId = participant.participantId
+) {
 
     const jsonText =
         JSON.stringify(
-            experimentLog,
+            logData,
             null,
             2
         );
@@ -442,15 +501,26 @@ function downloadExperimentLog() {
 
     const safeParticipantId =
         (
-            participant.participantId
+            participantId
             || "unknown"
         ).replace(
             /[^a-zA-Z0-9_-]/g,
             "_"
         );
 
+    const completedLog =
+        logData.find(
+            function (item) {
+                return item.event ===
+                    "experiment_complete";
+            }
+        );
+
     const dateText =
-        new Date()
+        new Date(
+            completedLog?.timestamp
+            || Date.now()
+        )
             .toISOString()
             .slice(
                 0,
@@ -483,6 +553,90 @@ function downloadExperimentLog() {
         },
         1000
     );
+}
+
+
+function restoreCompletedExperiment() {
+
+    const urlParameters =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const participantId =
+        urlParameters.get(
+            "participant"
+        );
+
+    const storedLog =
+        loadStoredExperimentLog(
+            participantId
+        );
+
+    if (!storedLog) {
+        return false;
+    }
+
+    const completed =
+        storedLog.some(
+            function (item) {
+                return item.event ===
+                    "experiment_complete";
+            }
+        );
+
+    if (!completed) {
+        return false;
+    }
+
+    const lastLog =
+        storedLog[
+            storedLog.length - 1
+        ];
+
+    participant = {
+        participantId:
+            participantId,
+
+        grade:
+            lastLog.grade || "",
+
+        pattern:
+            lastLog.pattern
+            || participantAssignments[
+                participantId
+            ]
+            || ""
+    };
+
+    experimentLog =
+        storedLog;
+
+    downloadStatus.textContent =
+        "前回の結果が端末に残っています。ボタンを押して保存してください。";
+
+    showScreen(
+        finishScreen
+    );
+
+    return true;
+}
+
+
+function manuallyDownloadExperimentLog() {
+
+    if (experimentLog.length === 0) {
+
+        downloadStatus.textContent =
+            "保存できる結果が見つかりませんでした。研究者へ連絡してください。";
+
+        return;
+    }
+
+    downloadExperimentLog();
+
+    downloadStatus.textContent =
+        "保存を開始しました。ダウンロードまたはファイルを確認してください。";
 }
 
 
@@ -1812,8 +1966,17 @@ document
     );
 
 
+downloadLogButton
+    .addEventListener(
+        "click",
+        manuallyDownloadExperimentLog
+    );
+
+
 // ============================================================
 // 最初にデータ読み込み
 // ============================================================
 
-loadPilotData();
+if (!restoreCompletedExperiment()) {
+    loadPilotData();
+}

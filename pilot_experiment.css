@@ -246,6 +246,30 @@ body {
 }
 
 
+.finish-save-area {
+    margin-top: 34px;
+}
+
+
+.finish-save-guide {
+    margin: 0 0 16px;
+
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+
+.download-status {
+    min-height: 1.6em;
+
+    margin: 14px 0 0;
+
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
 .task-card {
     padding: 26px 32px;
 
@@ -1467,6 +1491,18 @@ rt {
 
     .finish-thanks {
         font-size: 27px;
+    }
+
+    .finish-save-area {
+        margin-top: 26px;
+    }
+
+    .finish-save-guide {
+        font-size: 18px;
+    }
+
+    .download-status {
+        font-size: 16px;
     }
 }
 

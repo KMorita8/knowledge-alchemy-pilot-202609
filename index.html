@@ -14,7 +14,7 @@
 
     <link
         rel="stylesheet"
-        href="pilot_experiment.css?v=20260910-refreshguard"
+        href="pilot_experiment.css?v=20260911-final-survey"
     >
 </head>
 
@@ -778,6 +778,191 @@
 
 
 <section
+    id="final-survey-screen"
+    class="screen hidden"
+>
+
+    <div class="survey-panel final-survey-panel">
+
+        <h2>
+            さいごに
+            <ruby>
+                教
+                <rt>おし</rt>
+            </ruby>
+            えてね
+        </h2>
+
+        <fieldset class="survey-question">
+
+            <legend>
+                ぜんぶの
+                <ruby>
+                    本
+                    <rt>ほん</rt>
+                </ruby>
+                さがしをして、
+                <ruby>
+                    本
+                    <rt>ほん</rt>
+                </ruby>
+                はえらびやすかった？
+            </legend>
+
+            <label>
+                <input type="radio" name="overall-ease" value="5">
+                とてもえらびやすかった
+            </label>
+
+            <label>
+                <input type="radio" name="overall-ease" value="4">
+                えらびやすかった
+            </label>
+
+            <label>
+                <input type="radio" name="overall-ease" value="3">
+                どちらでもない
+            </label>
+
+            <label>
+                <input type="radio" name="overall-ease" value="2">
+                えらびにくかった
+            </label>
+
+            <label>
+                <input type="radio" name="overall-ease" value="1">
+                とてもえらびにくかった
+            </label>
+
+        </fieldset>
+
+        <fieldset class="survey-question">
+
+            <legend>
+                <ruby>
+                    本
+                    <rt>ほん</rt>
+                </ruby>
+                をさがして、ほかにも
+                <ruby>
+                    知
+                    <rt>し</rt>
+                </ruby>
+                りたいことができた？
+            </legend>
+
+            <label>
+                <input type="radio" name="new-interest" value="yes">
+                できた
+            </label>
+
+            <label>
+                <input type="radio" name="new-interest" value="maybe">
+                すこしできた
+            </label>
+
+            <label>
+                <input type="radio" name="new-interest" value="no">
+                できなかった
+            </label>
+
+        </fieldset>
+
+        <fieldset class="survey-question">
+
+            <legend>
+                3さつと6さつでは、どちらがえらびやすかった？
+            </legend>
+
+            <label>
+                <input type="radio" name="preferred-amount" value="3">
+                3さつ
+            </label>
+
+            <label>
+                <input type="radio" name="preferred-amount" value="6">
+                6さつ
+            </label>
+
+            <label>
+                <input type="radio" name="preferred-amount" value="same">
+                どちらもおなじ
+            </label>
+
+        </fieldset>
+
+        <fieldset class="survey-question">
+
+            <legend>
+                また、このような
+                <ruby>
+                    本
+                    <rt>ほん</rt>
+                </ruby>
+                さがしをしてみたい？
+            </legend>
+
+            <label>
+                <input type="radio" name="reuse-intention" value="yes">
+                してみたい
+            </label>
+
+            <label>
+                <input type="radio" name="reuse-intention" value="maybe">
+                どちらでもない
+            </label>
+
+            <label>
+                <input type="radio" name="reuse-intention" value="no">
+                したくない
+            </label>
+
+        </fieldset>
+
+        <div class="final-comment-group">
+
+            <label for="final-comment">
+                <ruby>
+                    気
+                    <rt>き</rt>
+                </ruby>
+                づいたことがあれば、
+                <ruby>
+                    書
+                    <rt>か</rt>
+                </ruby>
+                いてね
+            </label>
+
+            <p>ここは、なにも書かなくてもいいよ。</p>
+
+            <textarea
+                id="final-comment"
+                rows="4"
+                maxlength="300"
+            ></textarea>
+
+        </div>
+
+        <p
+            id="final-survey-error"
+            class="error-message"
+        ></p>
+
+        <button
+            id="complete-button"
+            class="main-button"
+            type="button"
+        >
+            おわる
+        </button>
+
+    </div>
+
+</section>
+
+
+<section
     id="finish-screen"
     class="screen hidden"
 >
@@ -818,7 +1003,7 @@
     </main>
 
 
-    <script src="pilot_experiment.js?v=20260911-participants110"></script>
+    <script src="pilot_experiment.js?v=20260911-final-survey"></script>
 
 </body>
 </html>

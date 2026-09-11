@@ -139,6 +139,11 @@ const surveyScreen =
         "survey-screen"
     );
 
+const finalSurveyScreen =
+    document.getElementById(
+        "final-survey-screen"
+    );
+
 const finishScreen =
     document.getElementById(
         "finish-screen"
@@ -174,12 +179,12 @@ const setupError =
 const participantAssignments = {
     "101": "A",
     "102": "B",
-    "103": "A",
-    "104": "B",
+    "103": "C",
+    "104": "D",
     "105": "A",
     "106": "B",
-    "107": "A",
-    "108": "B",
+    "107": "C",
+    "108": "D",
     "109": "A",
     "110": "B"
 };
@@ -315,6 +320,16 @@ const detailExplanation =
 const surveyError =
     document.getElementById(
         "survey-error"
+    );
+
+const finalSurveyError =
+    document.getElementById(
+        "final-survey-error"
+    );
+
+const finalComment =
+    document.getElementById(
+        "final-comment"
     );
 
 
@@ -530,6 +545,7 @@ function showScreen(
         entryScreen,
         relatedScreen,
         surveyScreen,
+        finalSurveyScreen,
         finishScreen
     ];
 
@@ -1592,35 +1608,126 @@ function submitSurvey() {
         currentStep >= 4
     ) {
 
-        addLog(
-            "experiment_complete",
-            {
-                step:
-                    currentStep,
-
-                completed_theme_count:
-                    currentStep
-            }
-        );
-
-        downloadExperimentLog();
-
-
-        console.log(
-            "実験ログ全体",
-            experimentLog
-        );
-
-
-        showScreen(
-            finishScreen
-        );
+        showFinalSurvey();
 
         return;
     }
 
 
     showTask();
+}
+
+
+function showFinalSurvey() {
+
+    finalSurveyError.textContent =
+        "";
+
+    const finalRadios =
+        finalSurveyScreen.querySelectorAll(
+            'input[type="radio"]'
+        );
+
+    for (
+        const radio of finalRadios
+    ) {
+        radio.checked = false;
+    }
+
+    finalComment.value = "";
+
+    showScreen(
+        finalSurveyScreen
+    );
+}
+
+
+function submitFinalSurvey() {
+
+    const overallEase =
+        document.querySelector(
+            'input[name="overall-ease"]:checked'
+        );
+
+    const newInterest =
+        document.querySelector(
+            'input[name="new-interest"]:checked'
+        );
+
+    const preferredAmount =
+        document.querySelector(
+            'input[name="preferred-amount"]:checked'
+        );
+
+    const reuseIntention =
+        document.querySelector(
+            'input[name="reuse-intention"]:checked'
+        );
+
+    if (
+        !overallEase
+        || !newInterest
+        || !preferredAmount
+        || !reuseIntention
+    ) {
+
+        finalSurveyError.innerHTML =
+            '4つの<ruby>質問<rt>しつもん</rt></ruby>に'
+            + '<ruby>答<rt>こた</rt></ruby>えてね。';
+
+        return;
+    }
+
+
+    addLog(
+        "final_survey",
+        {
+            step:
+                currentStep,
+
+            overall_ease:
+                Number(
+                    overallEase.value
+                ),
+
+            new_interest:
+                newInterest.value,
+
+            preferred_amount:
+                preferredAmount.value,
+
+            reuse_intention:
+                reuseIntention.value,
+
+            comment:
+                finalComment.value.trim()
+        }
+    );
+
+
+    addLog(
+        "experiment_complete",
+        {
+            step:
+                currentStep,
+
+            completed_theme_count:
+                currentStep
+        }
+    );
+
+    downloadExperimentLog();
+
+
+    console.log(
+        "実験ログ全体",
+        experimentLog
+    );
+
+
+    showScreen(
+        finishScreen
+    );
 }
 
 
@@ -1692,6 +1799,16 @@ document
     .addEventListener(
         "click",
         submitSurvey
+    );
+
+
+document
+    .getElementById(
+        "complete-button"
+    )
+    .addEventListener(
+        "click",
+        submitFinalSurvey
     );
 
 

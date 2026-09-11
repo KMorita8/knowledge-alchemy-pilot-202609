@@ -9,6 +9,53 @@ const DATA_FILE =
 
 
 // ============================================================
+// スマートフォンの引っ張って再読み込みを抑える
+// ============================================================
+
+let pullStartY = null;
+
+document.addEventListener(
+    "touchstart",
+    function (event) {
+
+        if (
+            window.scrollY <= 0
+            && event.touches.length === 1
+        ) {
+            pullStartY =
+                event.touches[0].clientY;
+        } else {
+            pullStartY = null;
+        }
+    },
+    { passive: true }
+);
+
+document.addEventListener(
+    "touchmove",
+    function (event) {
+
+        if (
+            pullStartY !== null
+            && event.touches.length === 1
+            && event.touches[0].clientY > pullStartY
+        ) {
+            event.preventDefault();
+        }
+    },
+    { passive: false }
+);
+
+document.addEventListener(
+    "touchend",
+    function () {
+        pullStartY = null;
+    },
+    { passive: true }
+);
+
+
+// ============================================================
 // 割当パターン
 // ============================================================
 

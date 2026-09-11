@@ -270,6 +270,31 @@ body {
 }
 
 
+.finish-copy-button {
+    width: 100%;
+
+    margin-top: 14px;
+    padding: 16px 24px;
+
+    border: 3px solid #6f6040;
+    border-radius: 14px;
+
+    background: #fffdf7;
+    color: #332d22;
+
+    font: inherit;
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.finish-copy-button:active {
+    transform: translateY(1px);
+}
+
+
 .task-card {
     padding: 26px 32px;
 
@@ -1503,6 +1528,11 @@ rt {
 
     .download-status {
         font-size: 16px;
+    }
+
+    .finish-copy-button {
+        min-height: 58px;
+        font-size: 18px;
     }
 }
 

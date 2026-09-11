@@ -337,6 +337,11 @@ const downloadLogButton =
         "download-log-button"
     );
 
+const copyLogButton =
+    document.getElementById(
+        "copy-log-button"
+    );
+
 const downloadStatus =
     document.getElementById(
         "download-status"
@@ -468,7 +473,7 @@ function loadStoredExperimentLog(
 }
 
 
-function downloadExperimentLog(
+function createExperimentLogFile(
     logData = experimentLog,
     participantId = participant.participantId
 ) {
@@ -478,25 +483,6 @@ function downloadExperimentLog(
             logData,
             null,
             2
-        );
-
-    const blob =
-        new Blob(
-            [jsonText],
-            {
-                type:
-                    "application/json"
-            }
-        );
-
-    const downloadUrl =
-        URL.createObjectURL(
-            blob
-        );
-
-    const link =
-        document.createElement(
-            "a"
         );
 
     const safeParticipantId =
@@ -527,15 +513,205 @@ function downloadExperimentLog(
                 10
             );
 
-    link.href =
-        downloadUrl;
-
-    link.download =
+    const fileName =
         "pilot_log_"
         + safeParticipantId
         + "_"
         + dateText
         + ".json";
+
+    const file =
+        new File(
+            [jsonText],
+            fileName,
+            {
+                type:
+                    "application/json"
+            }
+        );
+
+    return {
+        file:
+            file,
+
+        fileName:
+            fileName,
+
+        jsonText:
+            jsonText
+    };
+}
+
+
+async function shareExperimentLog() {
+
+    if (experimentLog.length === 0) {
+
+        downloadStatus.textContent =
+            "保存できる結果が見つかりませんでした。研究者へ連絡してください。";
+
+        return;
+    }
+
+    const logFile =
+        createExperimentLogFile();
+
+    const shareData = {
+        files: [
+            logFile.file
+        ],
+
+        title:
+            "本さがしの結果",
+
+        text:
+            "本さがしの結果ファイルです。"
+    };
+
+    const canShareFile =
+        typeof navigator.share ===
+            "function"
+        && typeof navigator.canShare ===
+            "function"
+        && navigator.canShare(
+            {
+                files:
+                    shareData.files
+            }
+        );
+
+    if (!canShareFile) {
+
+        downloadStatus.textContent =
+            "このブラウザでは共有画面を開けません。下の「結果をコピーする」を押してください。";
+
+        return;
+    }
+
+    try {
+
+        await navigator.share(
+            shareData
+        );
+
+        downloadStatus.textContent =
+            "共有または保存の操作が完了しました。";
+
+    } catch (error) {
+
+        if (error.name === "AbortError") {
+
+            downloadStatus.textContent =
+                "共有を取り消しました。もう一度押すか、結果をコピーしてください。";
+
+            return;
+        }
+
+        console.warn(
+            "結果を共有できませんでした。",
+            error
+        );
+
+        downloadStatus.textContent =
+            "共有できませんでした。下の「結果をコピーする」を押してください。";
+    }
+}
+
+
+async function copyExperimentLog() {
+
+    if (experimentLog.length === 0) {
+
+        downloadStatus.textContent =
+            "コピーできる結果が見つかりませんでした。研究者へ連絡してください。";
+
+        return;
+    }
+
+    const jsonText =
+        JSON.stringify(
+            experimentLog,
+            null,
+            2
+        );
+
+    try {
+
+        await navigator.clipboard.writeText(
+            jsonText
+        );
+
+        downloadStatus.textContent =
+            "結果をコピーしました。研究者へのメッセージに貼り付けて送ってください。";
+
+    } catch (error) {
+
+        const copyArea =
+            document.createElement(
+                "textarea"
+            );
+
+        copyArea.value =
+            jsonText;
+
+        copyArea.setAttribute(
+            "readonly",
+            ""
+        );
+
+        copyArea.style.position =
+            "fixed";
+
+        copyArea.style.opacity =
+            "0";
+
+        document.body.appendChild(
+            copyArea
+        );
+
+        copyArea.select();
+
+        const copied =
+            document.execCommand(
+                "copy"
+            );
+
+        copyArea.remove();
+
+        downloadStatus.textContent =
+            copied
+            ? "結果をコピーしました。研究者へのメッセージに貼り付けて送ってください。"
+            : "コピーできませんでした。研究者へ連絡してください。";
+    }
+}
+
+
+function downloadExperimentLog(
+    logData = experimentLog,
+    participantId = participant.participantId
+) {
+
+    const logFile =
+        createExperimentLogFile(
+            logData,
+            participantId
+        );
+
+    const downloadUrl =
+        URL.createObjectURL(
+            logFile.file
+        );
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+    link.href =
+        downloadUrl;
+
+    link.download =
+        logFile.fileName;
 
     document.body.appendChild(
         link
@@ -620,23 +796,6 @@ function restoreCompletedExperiment() {
     );
 
     return true;
-}
-
-
-function manuallyDownloadExperimentLog() {
-
-    if (experimentLog.length === 0) {
-
-        downloadStatus.textContent =
-            "保存できる結果が見つかりませんでした。研究者へ連絡してください。";
-
-        return;
-    }
-
-    downloadExperimentLog();
-
-    downloadStatus.textContent =
-        "保存を開始しました。ダウンロードまたはファイルを確認してください。";
 }
 
 
@@ -1870,9 +2029,6 @@ function submitFinalSurvey() {
         }
     );
 
-    downloadExperimentLog();
-
-
     console.log(
         "実験ログ全体",
         experimentLog
@@ -1969,7 +2125,14 @@ document
 downloadLogButton
     .addEventListener(
         "click",
-        manuallyDownloadExperimentLog
+        shareExperimentLog
+    );
+
+
+copyLogButton
+    .addEventListener(
+        "click",
+        copyExperimentLog
     );
 
 

@@ -14,7 +14,7 @@
 
     <link
         rel="stylesheet"
-        href="pilot_experiment.css?v=20260911-save-recovery"
+        href="pilot_experiment.css?v=20260911-save-share"
     >
 </head>
 
@@ -999,7 +999,7 @@
         <div class="finish-save-area">
 
             <p class="finish-save-guide">
-                最後に、下のボタンを押してください。
+                最後に、結果を研究者へ送ってください。
             </p>
 
             <button
@@ -1007,7 +1007,15 @@
                 class="main-button"
                 type="button"
             >
-                結果を保存する
+                結果を送る・保存する
+            </button>
+
+            <button
+                id="copy-log-button"
+                class="finish-copy-button"
+                type="button"
+            >
+                結果をコピーする
             </button>
 
             <p
@@ -1015,7 +1023,7 @@
                 class="download-status"
                 aria-live="polite"
             >
-                保存したファイルを研究者へ送ってください。
+                上のボタンで共有画面が開かない場合は、結果をコピーしてください。
             </p>
 
         </div>
@@ -1027,7 +1035,7 @@
     </main>
 
 
-    <script src="pilot_experiment.js?v=20260911-save-recovery"></script>
+    <script src="pilot_experiment.js?v=20260911-save-share"></script>
 
 </body>
 </html>
